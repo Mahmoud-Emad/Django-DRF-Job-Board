@@ -90,7 +90,7 @@ REST_FRAMEWORK = {
         # 'rest_framework.parsers.MultiPartParser',
     ],
 
-    'DEFAULT_PAGINATION_CLASS': 'server.jornal_app.api.pagination.CustomPagination',
+    'DEFAULT_PAGINATION_CLASS': 'server.target.api.pagination.CustomPagination',
     'PAGE_SIZE': 10,
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
 }
@@ -169,14 +169,16 @@ USE_I18N = True
 
 USE_TZ = True
 
+AUTH_USER_MODEL = 'target.User'
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 import os
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR , 'server/static'),
-    os.path.join(BASE_DIR , 'server/media'),
+    os.path.join(BASE_DIR , 'server/static/'),
+    os.path.join(BASE_DIR , 'server/media/'),
 ]
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
