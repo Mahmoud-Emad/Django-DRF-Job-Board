@@ -16,6 +16,11 @@ class CompanySize(models.TextChoices):
     XX_LARG = '501-1000 employees', '501-1000 employees'
     More    = 'more than 1000 employees', 'more than 1000 employees'
 
+class UserType(models.TextChoices):
+    ADMIN       = 'ADMIN', 'ADMIN'
+    JOB_SEEKER  = 'Job-Seeker', 'Job-Seeker'
+    EMPLOYER    = 'Employer', 'Employer'
+
 
 
 class TargetBaseUserManger(BaseUserManager):
@@ -48,11 +53,15 @@ class User(AbstractBaseUser, PermissionsMixin, TimeStampedModel):
     """
     This model will be the base user table to inherit it in employer and job seeker tables
     """
-    email = models.EmailField(max_length=60, unique=True)
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
-    is_superuser = models.BooleanField(default = False)
-
+    email           = models.EmailField(max_length=60, unique=True)
+    first_name      = models.CharField(max_length=30)
+    last_name       = models.CharField(max_length=30)
+    is_admin        = models.BooleanField(default = False)
+    is_staff        = models.BooleanField(default = False)
+    is_superuser    = models.BooleanField(default = False)
+    is_active       = models.BooleanField(default = True)
+    user_type       = models.CharField(max_length=15, choices=UserType.choices, default=UserType.ADMIN)
+    
     objects         = TargetBaseUserManger()
     USERNAME_FIELD  = 'email'
     
@@ -72,10 +81,10 @@ class User(AbstractBaseUser, PermissionsMixin, TimeStampedModel):
 
 class JobSeeker(User):
     """Profile table of users that registered as a job seekers"""
-    image = models.ImageField(upload_to='users/profile')
-    resume = models.FileField()
-    phone = models.CharField(max_length=15, null=True, blank=True)
-    bio = models.TextField(max_length=255, null=True, blank=True)
+    image   = models.ImageField(upload_to='server/media/users/profile')
+    resume  = models.FileField(upload_to='server/media/users/resume')
+    phone   = models.CharField(max_length=15, null=True, blank=True)
+    bio     = models.TextField(max_length=255, null=True, blank=True)
 
     def __str__(self) -> str:
         """String method"""
@@ -83,10 +92,10 @@ class JobSeeker(User):
 
 class Company(User):
     """Company table of users that registered as a employers"""
-    name = models.CharField(max_length=50)
-    size = models.CharField(max_length=90, choices=CompanySize.choices, default=CompanySize.SMALL)
-    phone = models.CharField(max_length=15, null=True, blank=True)
-    bio = models.TextField(max_length=255, null=True, blank=True)
+    company_name = models.CharField(max_length=50)
+    company_size = models.CharField(max_length=90, choices=CompanySize.choices, default=CompanySize.SMALL)
+    company_bio  = models.TextField(max_length=255, null=True, blank=True)
+    company_phone= models.CharField(max_length=15, null=True, blank=True)
 
     class Meta:
         verbose_name = "company"
