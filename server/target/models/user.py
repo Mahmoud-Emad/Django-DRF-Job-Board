@@ -90,7 +90,7 @@ class User(AbstractBaseUser, PermissionsMixin, TimeStampedModel):
 
 class JobSeeker(User):
     """Profile table of users that registered as a job seekers"""
-    resume  = models.FileField(upload_to='server/media/users/resume')
+    resume  = models.FileField(upload_to='server/media/users/resume', null=True, blank=True)
     country = CountryField()
     city    = models.CharField(max_length=30)
 

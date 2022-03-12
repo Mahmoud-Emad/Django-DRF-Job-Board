@@ -12,7 +12,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include([
         path('auth/', include([
-            path('sign-in/', LoginApiView.as_view()),
+            path('sign-in/', LoginApiView.as_view(), name = "sign_in"),
             path('token/refresh/', MyTokenRefreshView.as_view()),
         ])),
         # job-seekers endpoints
