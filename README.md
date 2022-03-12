@@ -16,8 +16,8 @@
 * To activate it use ".\Scripts\activate"
 * for mac try tio use this "python3 -m venv (name_of_env)"
 * To activate it use "source (name_of_env)/bin/activate"
-* ### NOTE : `Also, we use Docker so you can run this project directly`
-* ### TODO : ` Write how to use docker with this project `
+* ##### NOTE : Also, we use Docker so you can run this project directly
+* ##### TODO : Write how to use docker with this project 
 * After using commands above you just have to use `python manage.py migrate` then `python manage.py runserver`
 * Go to [http://127.0.0.1:8000/swagger/](http://127.0.0.1:8000/swagger/) to see our api documentation
 
@@ -50,7 +50,7 @@
     - Update profile information
     - DELETE your account
 
-* ### ` Ech user has permissions based on his user type `
+* #####  Ech user has permissions based on his user type
 
 ## How to login?:
 - Go to [http://127.0.0.1:8000/api/auth/sign-in/](http://127.0.0.1:8000/api/auth/sign-in/) endpoint to take a token
