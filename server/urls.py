@@ -3,21 +3,24 @@ from django.contrib import admin
 from django.urls import path, include
 from server.target.utils.auth import MyTokenRefreshView
 
-from server.target.views.user import (
-    JobSeekerRegistrationAPIView,
-    EmployersRegistrationAPIView,
-    LoginApiView,
-)
+from server.target.views.auth import LoginApiView
+
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include([
         path('auth/', include([
-            path('register/job-seeker/', JobSeekerRegistrationAPIView.as_view()),
-            path('register/employers/', EmployersRegistrationAPIView.as_view()),
             path('sign-in/', LoginApiView.as_view()),
             path('token/refresh/', MyTokenRefreshView.as_view()),
         ])),
+        # job-seekers endpoints
+        path('job-seekers/', include('server.target.routers.job_seekers')),
+        # employers endpoints
+        path('employers/', include('server.target.routers.employers')),
+        # jobs endpoints
+        path('jobs/', include('server.target.routers.jobs')),
     ]))
 ]
 

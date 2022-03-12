@@ -1,12 +1,17 @@
 from typing import Any, Union
-from django.db import models
 
+from django.db import models
+from django_countries.fields import CountryField
 from django.contrib.auth.models import (
     AbstractBaseUser , BaseUserManager, 
     PermissionsMixin , AnonymousUser, 
 )
 
 from server.target.models.abstracts import TimeStampedModel
+
+
+
+
 
 
 class CompanySize(models.TextChoices):
@@ -56,11 +61,15 @@ class User(AbstractBaseUser, PermissionsMixin, TimeStampedModel):
     email           = models.EmailField(max_length=60, unique=True)
     first_name      = models.CharField(max_length=30)
     last_name       = models.CharField(max_length=30)
+    description     = models.TextField(max_length=255, null=True, blank=True)
+    image           = models.ImageField(upload_to='server/media/users/profile', null=True, blank=True)
+    phone           = models.CharField(max_length=15, null=True, blank=True)
+    user_type       = models.CharField(max_length=15, choices=UserType.choices, default=UserType.ADMIN)
+
     is_admin        = models.BooleanField(default = False)
     is_staff        = models.BooleanField(default = False)
     is_superuser    = models.BooleanField(default = False)
     is_active       = models.BooleanField(default = True)
-    user_type       = models.CharField(max_length=15, choices=UserType.choices, default=UserType.ADMIN)
     
     objects         = TargetBaseUserManger()
     USERNAME_FIELD  = 'email'
@@ -81,26 +90,19 @@ class User(AbstractBaseUser, PermissionsMixin, TimeStampedModel):
 
 class JobSeeker(User):
     """Profile table of users that registered as a job seekers"""
-    image   = models.ImageField(upload_to='server/media/users/profile')
     resume  = models.FileField(upload_to='server/media/users/resume')
-    phone   = models.CharField(max_length=15, null=True, blank=True)
-    bio     = models.TextField(max_length=255, null=True, blank=True)
+    country = CountryField()
+    city    = models.CharField(max_length=30)
 
     def __str__(self) -> str:
         """String method"""
         return self.full_name
 
-class Company(User):
-    """Company table of users that registered as a employers"""
+class Employer(User):
+    """Employer table of users that registered as a employers"""
     company_name = models.CharField(max_length=50)
     company_size = models.CharField(max_length=90, choices=CompanySize.choices, default=CompanySize.SMALL)
-    company_bio  = models.TextField(max_length=255, null=True, blank=True)
-    company_phone= models.CharField(max_length=15, null=True, blank=True)
-
-    class Meta:
-        verbose_name = "company"
-        verbose_name_plural = "companies"
 
     def __str__(self) -> str:
         """String method"""
-        return self.full_name
+        return self.company_name
