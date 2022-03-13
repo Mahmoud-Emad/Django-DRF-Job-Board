@@ -2,7 +2,7 @@
 
 ## Description:
 * Simple API job board web application built by Django and DRF.
-* [You can see it live now](http://www.target.board.com)
+* [You can see it live now](https://target-job-board-app.herokuapp.com/)
 
 
 ## Installation:
