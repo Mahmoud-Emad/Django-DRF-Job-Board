@@ -15,11 +15,11 @@ from server.target.models.abstracts import TimeStampedModel
 
 
 class CompanySize(models.TextChoices):
-    SMALL   = '11-50 employees', '11-50 employees'
-    LARG    = '51-100 employees', '51-100 employees'
-    X_LARG  = '101-500 employees', '101-500 employees'
-    XX_LARG = '501-1000 employees', '501-1000 employees'
-    More    = 'more than 1000 employees', 'more than 1000 employees'
+    SMALL   = '11-50', '11-50'
+    LARG    = '51-100', '51-100'
+    X_LARG  = '101-500', '101-500'
+    XX_LARG = '501-1000', '501-1000'
+    More    = '1001', '1001'
 
 class UserType(models.TextChoices):
     ADMIN       = 'ADMIN', 'ADMIN'
