@@ -16,8 +16,8 @@ class JobTests(APITestCase):
     """
     def setUp(self):
         """Setup local database objects"""
-        init = JobSeekerTests()
-        return init.setUp()
+        self.init = JobSeekerTests()
+        return self.init.setUp()
     
     def test_recent_jobs(self) -> Job:
         """
@@ -44,4 +44,12 @@ class JobTests(APITestCase):
         response = client.get(url, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
+    def test_get_job_detail(self) -> Job:
+        """
+        Ensure that we can get job details
+        """
+        job = self.init.create_fake_job()
+        url = f'/api/jobs/detail/{job.id}/'
+        response = client.get(url, format='json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
         

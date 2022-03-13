@@ -41,6 +41,18 @@ class JobSeekerTests(APITestCase):
         
         self.access_token = self.get_token()
         self.headers = client.credentials(HTTP_AUTHORIZATION='Bearer ' + self.access_token)
+    
+    def create_fake_job(self):
+        """
+        Create a job obj in database to use it outside this file
+        """
+        job, created = Job.objects.get_or_create(
+            title= "EX-Chief",experience= 5,
+            country= "EG",city= "Giza",
+            job_type= "Full Time",description= "Some",
+            company = self.employer
+        )
+        return job if job else None
 
     def get_token(self):
         """Get token for job-seeker user."""
@@ -92,7 +104,7 @@ class JobSeekerTests(APITestCase):
         Ensure we can update an job-seeker account.
         """
         if self.job_seeker:
-            url = f'/api/job-seekers/{self.job_seeker.id}/'
+            url = f'/api/job-seekers/action/{self.job_seeker.id}/'
             data = {
                 "email": "updated@employer.target",
                 "first_name": "Mahmoud",
@@ -109,7 +121,7 @@ class JobSeekerTests(APITestCase):
         Ensure we can delete an job-seeker account.
         """
         if self.job_seeker:
-            url = f'/api/job-seekers/{self.job_seeker.id}/'
+            url = f'/api/job-seekers/action/{self.job_seeker.id}/'
             response = client.delete(url, format='json')
             self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
 

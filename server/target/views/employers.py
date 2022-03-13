@@ -78,28 +78,50 @@ class EmployersDetailsView(GenericAPIView):
             )
         return CustomResponse.not_found(message = f"User with id {id} not found.")
 
+
+class EmployerHandlerAPIView(GenericAPIView):
+    """This class allows you to delete, update your account"""
+    serializer_class = EmployersRegistrationSerializer
+    permission_classes = [IsEmployer]
+
     def put(self, request:Request, id:int) -> Response:
-        """Update employer endpoint"""
+        """
+        Update employer endpoint
+        You can use this endpoint when you want to Update your employer account
+        """
         user:Employer = get_employer_by_id(int(id))
         if user is not None:
-            serializer = EmployersRegistrationSerializer(user, data = request.data)
-            if serializer.is_valid():
-                serializer.save()
-                return CustomResponse.success(
-                    message="User updated successfully",
-                    data=serializer.data,
-                    status_code=HTTP_202_ACCEPTED
-                )
-            return CustomResponse.bad_request(message = "Cant Update User", error = serializer.errors)
+            if user.id == request.user.id:
+                serializer = EmployersRegistrationSerializer(user, data = request.data)
+                if serializer.is_valid():
+                    serializer.save()
+                    return CustomResponse.success(
+                        message="User updated successfully",
+                        data=serializer.data,
+                        status_code=HTTP_202_ACCEPTED
+                    )
+                return CustomResponse.bad_request(message = "Cant Update User", error = serializer.errors)
+            return CustomResponse.bad_request(
+                message="You don't have permission to perform this action",
+                status_code=HTTP_203_NON_AUTHORITATIVE_INFORMATION
+            )
         return CustomResponse.not_found(message = f"User with id {id} not found.")
-    
+
     def delete(self, request:Request, id:int) -> Response:
-        """Update employer endpoint"""
+        """
+        Delete employer endpoint
+        You can use this endpoint when you want to Delete your employer account
+        """
         user:Employer = get_employer_by_id(int(id))
         if user is not None:
-            user.delete()
-            return CustomResponse.success(
-                status_code=HTTP_204_NO_CONTENT
+            if user.id == request.user.id:
+                user.delete()
+                return CustomResponse.success(
+                    status_code=HTTP_204_NO_CONTENT
+                )
+            return CustomResponse.bad_request(
+                message="You don't have permission to perform this action",
+                status_code=HTTP_203_NON_AUTHORITATIVE_INFORMATION
             )
         return CustomResponse.not_found(message = f"User with id {id} not found.")
 

@@ -1,3 +1,4 @@
+from ast import Dict
 from django.db.models import Q, Count
 
 from rest_framework.generics import GenericAPIView, ListAPIView
@@ -38,6 +39,22 @@ class PostNewJobAPIView(GenericAPIView):
                 status_code=HTTP_201_CREATED
             )
         return CustomResponse.bad_request(error=serializer.errors)
+
+
+class JobDetailAPIView(GenericAPIView):
+    """You have to use this class when you need to know more about exact job"""
+    serializer_class = JobSearchSerializers
+
+    def get(self, request:Request, id:int) -> Response:
+        """This endpoint will return a single job by passing its id"""
+        job:Job = get_job_by_id(int(id))
+        if job is not None:
+            return CustomResponse.success(
+                message="Success Response",
+                data=JobSearchSerializers(job).data,
+                status_code=HTTP_200_OK
+            )
+        return CustomResponse.not_found(message = f"Job with id {id} not found.")
 
 
 class JobSearchAPIView(GenericAPIView):

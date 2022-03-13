@@ -83,7 +83,7 @@ class EmployerTests(APITestCase):
         Ensure we can update an employer account.
         """
         if self.employer:
-            url = f'/api/employers/{self.employer.id}/'
+            url = f'/api/employers/action/{self.employer.id}/'
             data = {
                 'email': 'updated@employer.target',
                 'first_name': 'Mahmoud',
@@ -99,7 +99,7 @@ class EmployerTests(APITestCase):
         Ensure we can delete an employer account.
         """
         if self.employer:
-            url = f'/api/employers/{self.employer.id}/'
+            url = f'/api/employers/action/{self.employer.id}/'
             response = client.delete(url, format='json')
             self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
 

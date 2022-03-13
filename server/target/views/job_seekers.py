@@ -11,6 +11,7 @@ from rest_framework.status import (
     HTTP_200_OK,
     HTTP_201_CREATED,
     HTTP_202_ACCEPTED,
+    HTTP_203_NON_AUTHORITATIVE_INFORMATION,
     HTTP_204_NO_CONTENT,
 )
 
@@ -79,28 +80,50 @@ class JobSeekerDetailsView(GenericAPIView):
             )
         return CustomResponse.not_found(message = f"User with id {id} not found.")
 
+
+class JobSeekerHandlerAPIView(GenericAPIView):
+    """This class allows you to delete, update your account"""
+    serializer_class = JobSeekerRegistrationSerializer
+    permission_classes = [IsJobSeekers]
+
     def put(self, request:Request, id:int) -> Response:
-        """Update job-seeker endpoint"""
+        """
+        Update Job-Seeker endpoint
+        You can use this endpoint when you want to Update your Job-Seeker account
+        """
         user:JobSeeker = get_job_seeker_by_id(int(id))
         if user is not None:
-            serializer = JobSeekerRegistrationSerializer(user, data = request.data)
-            if serializer.is_valid():
-                serializer.save()
-                return CustomResponse.success(
-                    message="User updated successfully",
-                    data=serializer.data,
-                    status_code=HTTP_202_ACCEPTED
-                )
-            return CustomResponse.bad_request(message = "Cant Update User", error = serializer.errors)
+            if user.id == request.user.id:
+                serializer = JobSeekerRegistrationSerializer(user, data = request.data)
+                if serializer.is_valid():
+                    serializer.save()
+                    return CustomResponse.success(
+                        message="User updated successfully",
+                        data=serializer.data,
+                        status_code=HTTP_202_ACCEPTED
+                    )
+                return CustomResponse.bad_request(message = "Cant Update User", error = serializer.errors)
+            return CustomResponse.bad_request(
+                message="You don't have permission to perform this action",
+                status_code=HTTP_203_NON_AUTHORITATIVE_INFORMATION
+            )
         return CustomResponse.not_found(message = f"User with id {id} not found.")
     
     def delete(self, request:Request, id:int) -> Response:
-        """Delete job-seeker endpoint"""
+        """
+        Delete Job-Seeker endpoint
+        You can use this endpoint when you want to Delete your Job-Seeker account
+        """
         user:JobSeeker = get_job_seeker_by_id(int(id))
         if user is not None:
-            user.delete()
-            return CustomResponse.success(
-                status_code=HTTP_204_NO_CONTENT
+            if user.id == request.user.id:
+                user.delete()
+                return CustomResponse.success(
+                    status_code=HTTP_204_NO_CONTENT
+                )
+            return CustomResponse.bad_request(
+                message="You don't have permission to perform this action",
+                status_code=HTTP_203_NON_AUTHORITATIVE_INFORMATION
             )
         return CustomResponse.not_found(message = f"User with id {id} not found.")
 
