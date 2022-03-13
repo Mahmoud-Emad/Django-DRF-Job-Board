@@ -22,7 +22,8 @@
 
 
 ## After Installation:
-* Go to [http://127.0.0.1:8000/swagger/](http://127.0.0.1:8000/swagger/) to see our api documentation
+* Go to [http://127.0.0.1:8000/redoc/](http://127.0.0.1:8000/redoc/) to see our OpenAPI documentation
+* Go to [http://127.0.0.1:8000/swagger/](http://127.0.0.1:8000/swagger/) to see our api endpoints, specification
 
 ## UserType and Permissions:
 * You can register as a job seeker or employer to take permission to access different endpoints based on your user type
