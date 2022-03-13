@@ -21,7 +21,7 @@ class CustomResponse:
 
         return Response({
             'Message' : message,
-            'Data':data,
+            'data':data,
             'Status':status_code
         }, status = status_code)
 
@@ -45,7 +45,7 @@ class CustomResponse:
 
         return Response({
             'Message' : message,
-            'Data' : data,
+            'data' : data,
             'Error' : error,
             'Status':status_code
         }, status = status_code)
