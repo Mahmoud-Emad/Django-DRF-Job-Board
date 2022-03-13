@@ -14,7 +14,10 @@ SECRET_KEY = 'django-insecure-7apl5r$grrs^n!88kuekfe#+68g#qzbhoz@xsuk9nqekqg3&eq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['target-job-board-app.herokuapp.com']
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'target-job-board-app.herokuapp.com'
+]
 
 
 # Application definition
@@ -29,6 +32,7 @@ INSTALLED_APPS = [
 
     # Third party
     'rest_framework',
+    'corsheaders',
     'drf_yasg',
     'rest_framework_simplejwt',
     'django_countries',
@@ -39,6 +43,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -200,3 +205,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 import dj_database_url 
 prod_db  =  dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(prod_db)
+
+
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = (
+    'http://127.0.0.1:8000',
+    'http://target-job-board-app.herokuapp.com'
+)
