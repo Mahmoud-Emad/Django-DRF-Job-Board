@@ -92,7 +92,7 @@ REST_FRAMEWORK = {
     ],
 
     'DEFAULT_PAGINATION_CLASS': 'server.target.api.pagination.CustomPagination',
-    'PAGE_SIZE': 3,
+    'PAGE_SIZE': 10,
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
 
     'TEST_REQUEST_DEFAULT_FORMAT': 'json',
@@ -178,14 +178,16 @@ AUTH_USER_MODEL = 'target.User'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-import os
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR , 'server/static/'),
-    os.path.join(BASE_DIR , 'server/media/'),
-]
-STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
-STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
+# import os
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR , 'server/static/'),
+#     os.path.join(BASE_DIR , 'server/media/'),
+# ]
+# STATIC_URL = '/static/'
+# MEDIA_URL = '/media/'
+STATIC_URL = 'static/'
+MEDIA_URL = 'media/'
+# STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
