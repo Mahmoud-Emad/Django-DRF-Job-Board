@@ -15,7 +15,7 @@ class EmployersRegistrationSerializer(ModelSerializer):
         model = Employer
         fields = [
             'email', 'first_name', 'last_name', 'password', "company_name",
-            "company_size", "phone", "image","description", "user_type"
+            "company_size", "phone","description", "user_type"
         ]
         read_only_fields = ("user_type",)
 
@@ -27,7 +27,7 @@ class EmployersCompanyInfoSerializer(ModelSerializer):
     class Meta:
         model = Employer
         fields = [
-            "company_name", "company_size", "image","description"
+            "company_name", "company_size","description"
         ]
         
 class TopCompaniesSerializer(ModelSerializer):
@@ -39,7 +39,7 @@ class TopCompaniesSerializer(ModelSerializer):
     class Meta:
         model = Employer
         fields = [
-            "company_name", "company_size", "image", "description", "jobs"
+            "company_name", "company_size", "description", "jobs"
         ]
     
     def get_jobs(self, obj:Employer):

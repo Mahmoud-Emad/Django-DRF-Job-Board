@@ -62,7 +62,6 @@ class User(AbstractBaseUser, PermissionsMixin, TimeStampedModel):
     first_name      = models.CharField(max_length=30)
     last_name       = models.CharField(max_length=30)
     description     = models.TextField(max_length=255, null=True, blank=True)
-    image           = models.ImageField(upload_to='server/media/users/profile', null=True, blank=True)
     phone           = models.CharField(max_length=15, null=True, blank=True)
     user_type       = models.CharField(max_length=15, choices=UserType.choices, default=UserType.ADMIN)
 
