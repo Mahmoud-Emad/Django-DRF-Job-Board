@@ -20,9 +20,9 @@ class CustomResponse:
             status_code = HTTP_200_OK
 
         return Response({
-            'Message' : message,
+            'message' : message,
             'data':data,
-            'Status':status_code
+            'status':status_code
         }, status = status_code)
 
     @staticmethod
@@ -33,8 +33,8 @@ class CustomResponse:
             message = 'Not Found'
 
         return Response({
-            'Message' : message,
-            'Status':status_code
+            'message' : message,
+            'status':status_code
         }, status = status_code)
 
     @staticmethod
@@ -44,8 +44,8 @@ class CustomResponse:
             message = 'Make sure that you entered a valid data.'
 
         return Response({
-            'Message' : message,
+            'message' : message,
             'data' : data,
-            'Error' : error,
-            'Status':status_code
+            'error' : error,
+            'status':status_code
         }, status = status_code)
