@@ -39,7 +39,6 @@
     - Get jobs you were applied on 
     - Searching about job
     - See top companies
-    - See who are companies hiring in your city, country
     - Update profile information
     - DELETE your account
 
