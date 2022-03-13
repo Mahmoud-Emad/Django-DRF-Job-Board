@@ -59,7 +59,7 @@ class JobSeekerTests(APITestCase):
         url = f'/api/auth/sign-in/'
         data = {'email': self.job_seeker.email,'password': self.job_seeker.password}
         response = client.post(url, data, format='json')
-        return response.data['Data']['access_token']
+        return response.data['data']['access_token']
 
     def test_login_job_seeker(self):
         """
@@ -72,7 +72,7 @@ class JobSeekerTests(APITestCase):
         }
         response = client.post(url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.access_token = response.data['Data']['access_token']
+        self.access_token = response.data['data']['access_token']
 
     def test_register_new_job_seeker(self) -> JobSeeker:
         """

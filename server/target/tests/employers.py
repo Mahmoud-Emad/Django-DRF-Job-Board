@@ -39,7 +39,7 @@ class EmployerTests(APITestCase):
         url = f'/api/auth/sign-in/'
         data = {'email': self.employer.email,'password': self.employer.password}
         response = client.post(url, data, format='json')
-        return response.data['Data']['access_token']
+        return response.data['data']['access_token']
 
     def test_login_employer(self):
         """
@@ -52,7 +52,7 @@ class EmployerTests(APITestCase):
         }
         response = client.post(url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.access_token = response.data['Data']['access_token']
+        self.access_token = response.data['data']['access_token']
     
     def test_register_new_employer(self) -> Employer:
         """
@@ -154,4 +154,4 @@ class FakeEmployerTests(APITestCase):
         }
         response = client.post(url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        return response.data['Data']['email']
+        return response.data['data']['email']
