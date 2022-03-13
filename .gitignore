@@ -213,9 +213,6 @@ media/
 .static/
 /static/
 
-# File types:
-*.sqlite3
-*.db
 
 # Configuration file with private data:
 *.env
