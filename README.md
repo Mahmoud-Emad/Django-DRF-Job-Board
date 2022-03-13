@@ -60,9 +60,9 @@
 
 ## Run Tests:
 - To Run unit tests there are two options:
-    - docker compose
+    - Docker:
         - `docker-compose run web sh -c "python manage.py test"`.
-    - python
+    - Python:
         - `python manage.py test`.
     #### You can see database diagram (SQL) in [SQLTest_database](https://github.com/Mahmoud-Emad/Target/tree/master/SQLTest_database)
 

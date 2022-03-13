@@ -92,7 +92,7 @@ REST_FRAMEWORK = {
     ],
 
     'DEFAULT_PAGINATION_CLASS': 'server.target.api.pagination.CustomPagination',
-    'PAGE_SIZE': 10,
+    'PAGE_SIZE': 3,
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
 
     'TEST_REQUEST_DEFAULT_FORMAT': 'json',
