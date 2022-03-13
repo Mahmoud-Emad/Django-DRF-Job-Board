@@ -64,7 +64,6 @@
         - `docker-compose run web sh -c "python manage.py test"`.
     - Python:
         - `python manage.py test`.
-    #### You can see database diagram (SQL) in [SQLTest_database](https://github.com/Mahmoud-Emad/Target/tree/master/SQLTest_database)
 
 ## Admin Dashboard:
 - To access Admin dashboard : [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin) and the admin credentials are: `admin@target.com`, `0000`
