@@ -27,7 +27,7 @@ class EmployersCompanyInfoSerializer(ModelSerializer):
     class Meta:
         model = Employer
         fields = [
-            "company_name", "company_size","description"
+            "id","company_name", "company_size","description"
         ]
         
 class TopCompaniesSerializer(ModelSerializer):
