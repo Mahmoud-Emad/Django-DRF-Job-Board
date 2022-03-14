@@ -10,7 +10,7 @@ from rest_framework.status import (
     HTTP_201_CREATED,
 )
 
-from server.target.serializers.jobs import PostNewJobSerializers, JobSearchSerializers
+from server.target.serializers.jobs import PostNewJobSerializers, JobSearchSerializers, MustRecentJobsSerializer
 from server.target.serializers.employers import TopCompaniesSerializer
 from server.target.api.permission import IsJobSeekers
 from server.target.api.response import CustomResponse
@@ -84,7 +84,7 @@ class MostRecentJobsAPIView(ListAPIView):
     """
     Users can see the most recent posted jobs ordered by [created] field
     """
-    serializer_class = JobSearchSerializers
+    serializer_class = MustRecentJobsSerializer
     def get_queryset(self) -> Response:
         queryset = Job.objects.all().order_by('-created')
         return queryset

@@ -3,6 +3,7 @@ from django.db import models
 
 from server.target.models.abstracts import TimeStampedModel
 from server.target.models.user import Employer, JobSeeker
+from server.target.utils.intger_range_field import IntegerRangeField
 
 
 
@@ -17,7 +18,7 @@ class Job(TimeStampedModel):
     """Job table"""
     company     = models.ForeignKey(Employer, on_delete=models.CASCADE, related_name='job_employer')
     title       = models.CharField(max_length=250)
-    experience  = models.IntegerField(default=0)
+    experience  = IntegerRangeField(default=0, min_value=0, max_value=20)
     country     = CountryField()
     city        = models.CharField(max_length=30)
     job_type    = models.CharField(max_length=30, choices=JobType.choices, default=None)

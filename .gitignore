@@ -210,8 +210,6 @@ fabric.properties
 #####=== Custom ===#####
 # Directories:
 media/
-.static/
-/static/
 
 
 # Configuration file with private data:

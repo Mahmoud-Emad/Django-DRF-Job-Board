@@ -16,6 +16,21 @@ class PostNewJobSerializers(ModelSerializer):
         read_only_fields = ('company',)
 
 
+class MustRecentJobsSerializer(ModelSerializer):
+    """Serializer class to get most recent jobs"""
+    most_recent = SerializerMethodField()
+
+    class Meta:
+        model = Job
+        fields = '__all__'
+    
+    def get_most_recent(self, obj):
+        """Return True if most recent else False"""
+        from datetime import datetime, date
+        if date.today() == obj.created.date():
+            return True if int(datetime.now().hour) - (int(obj.created.hour) + 2) <= 1 else False
+
+
 class JobSearchSerializers(ModelSerializer):
     """Just serializer class to pass search field and return response."""
     company = SerializerMethodField()
