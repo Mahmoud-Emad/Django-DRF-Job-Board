@@ -10,7 +10,6 @@ from server.target.views.auth import LoginApiView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('server.target.routers.mvt')),
     path('api/', include([
         path('auth/', include([
             path('sign-in/', LoginApiView.as_view(), name = "sign_in"),
