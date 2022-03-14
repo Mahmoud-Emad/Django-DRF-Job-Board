@@ -2,7 +2,7 @@
 
 ## Description:
 * Simple API job board web application built by Django and DRF.
-* [You can see it live now](https://target-job-board-app.herokuapp.com/)
+* [You can see it live now](https://target-job-board-app.netlify.app/)
 
 
 ## Installation:
@@ -24,7 +24,7 @@
 ## After Installation:
 * Go to [http://127.0.0.1:8000/redoc/](http://127.0.0.1:8000/redoc/) to see our OpenAPI documentation
 * Go to [http://127.0.0.1:8000/swagger/](http://127.0.0.1:8000/swagger/) to see our api endpoints, specification
-
+* Go to [Backend live openapi](https://target-job-board-app.herokuapp.com/swagger/) to test the functionality
 ## UserType and Permissions:
 * You can register as a job seeker or employer to take permission to access different endpoints based on your user type
 * Use [http://127.0.0.1:8000/api/job-seekers/register/](http://127.0.0.1:8000/api/job-seekers/register/) endpoint to register a new account on as a job-seeker
