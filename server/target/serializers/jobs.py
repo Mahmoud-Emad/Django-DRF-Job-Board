@@ -46,7 +46,7 @@ class JobSearchSerializers(ModelSerializer):
 
     def get_applied_users(self, obj:JobSeeker) -> int:
         """Get length of applied_users"""
-        return obj.applied_users.count()
+        return obj.applied_users.all().values_list('id', flat=True)
 
 
 class JobDetailSerializers(ModelSerializer):

@@ -22,6 +22,6 @@ class JobSeekerDetailForEmployerSerializer(ModelSerializer):
     class Meta:
         model = JobSeeker
         fields = [
-            'email', 'full_name', "phone", "description"
+            'id','email', 'full_name', "phone", "description"
         ]
         read_only_fields = ("user_type",)

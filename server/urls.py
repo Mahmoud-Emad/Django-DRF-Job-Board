@@ -22,6 +22,8 @@ urlpatterns = [
         path('employers/', include('server.target.routers.employers')),
         # jobs endpoints
         path('jobs/', include('server.target.routers.jobs')),
+        # User endpoints
+        path('user/', include('server.target.routers.user')),
     ]))
 ]
 
