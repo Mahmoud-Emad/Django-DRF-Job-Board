@@ -57,7 +57,7 @@ class EmployersDetailsSerializer(ModelSerializer):
         fields = [
             "id",'email', 'first_name', 'last_name', "company_name",
             "company_size", "phone","description", "user_type",
-            "jobs"
+            "jobs","most_recent"
         ]
         read_only_fields = ("user_type",)
     
