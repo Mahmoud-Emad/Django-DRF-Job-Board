@@ -18,7 +18,7 @@ class EmployerTests(APITestCase):
         """Setup local database objects"""
         employer, created = Employer.objects.get_or_create(
             email = 'test@employer.target',first_name = 'Mahmoud',
-            last_name = 'Emad',password ='0000',
+            last_name = 'Emad',password ='000000000',
             company_name = 'TestCompany'
         )
         self.employer = employer
@@ -63,7 +63,7 @@ class EmployerTests(APITestCase):
             'email': 'test_@employer.target',
             'first_name': 'Mahmoud',
             'last_name': 'Emad',
-            'password':'0000',
+            'password':'000000000',
             'company_name': 'TestCompany',
         }
         response = client.post(url, data, format='json')
@@ -88,7 +88,7 @@ class EmployerTests(APITestCase):
                 'email': 'updated@employer.target',
                 'first_name': 'Mahmoud',
                 'last_name': 'Emad',
-                'password':'0000',
+                'password':'000000000',
                 'company_name': 'TestCompany',
             }
             response = client.put(url, data, format='json')
@@ -149,7 +149,7 @@ class FakeEmployerTests(APITestCase):
             'email': 'test_fake@employer.target',
             'first_name': 'Mahmoud',
             'last_name': 'Emad',
-            'password':'0000',
+            'password':'000000000',
             'company_name': 'TestCompany',
         }
         response = client.post(url, data, format='json')

@@ -19,7 +19,7 @@ from server.target.api.permission import IsEmployer
 from server.target.api.response import CustomResponse
 from server.target.models.user import Employer, UserType
 
-from server.target.serializers.employers import EmployersRegistrationSerializer
+from server.target.serializers.employers import EmployersRegistrationSerializer, EmployersDetailsSerializer
 from server.target.serializers.jobs import JobDetailSerializers, JobSearchSerializers
 from server.target.services.user import get_employer_by_id
 from server.target.services.jobs import get_jobs_based_on_employer, get_job_by_id
@@ -41,6 +41,8 @@ class EmployersRegistrationAPIView(GenericAPIView):
         serializer:Dict = EmployersRegistrationSerializer(data=request.data)
         if serializer.is_valid():
             password:str = serializer.validated_data.get('password')
+            if len(password) < 8:
+                return CustomResponse.bad_request(message="Password must be more than 8 characters and numbers") 
             en_password: str = encode_password(password)
             
             serializer.save(user_type = UserType.EMPLOYER, password = en_password)
@@ -61,15 +63,14 @@ class EmployersRegistrationAPIView(GenericAPIView):
 
 
 class EmployersDetailsView(GenericAPIView):
-    """employers CRUDs for employers users"""
-    serializer_class = EmployersRegistrationSerializer
+    """employer detail endpoint"""
+    serializer_class = EmployersDetailsSerializer
 
     def get(self, request:Request, id:int) -> Response:
         """This endpoint will return a single employer by passing its id"""
         user:Employer = get_employer_by_id(int(id))
-        user_data:Dict = EmployersRegistrationSerializer(user).data
+        user_data:Dict = EmployersDetailsSerializer(user).data
         
-        del user_data["password"]
         if user is not None:
             return CustomResponse.success(
                 message="Success Response",

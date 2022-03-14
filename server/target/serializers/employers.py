@@ -44,3 +44,28 @@ class TopCompaniesSerializer(ModelSerializer):
     
     def get_jobs(self, obj:Employer):
         return len(Job.objects.filter(company__id = obj.id).select_related('company'))
+
+class EmployersDetailsSerializer(ModelSerializer):
+    """
+    employers details serializer class
+    """
+    jobs = SerializerMethodField()
+
+    class Meta:
+        model = Employer
+        fields = [
+            'email', 'first_name', 'last_name', "company_name",
+            "company_size", "phone","description", "user_type",
+            "jobs"
+        ]
+        read_only_fields = ("user_type",)
+    
+    def get_jobs(self, obj: Employer) -> Job:
+        """
+        This method will return all of jobs that was posted by employer
+        """
+        from server.target.serializers.jobs import JobSearchSerializers
+        jobs = Job.objects.filter(
+            company__id = obj.id
+        )
+        return JobSearchSerializers(jobs, many=True).data

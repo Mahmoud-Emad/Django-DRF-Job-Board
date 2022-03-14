@@ -39,6 +39,8 @@ class JobSeekerRegistrationAPIView(GenericAPIView):
         serializer:Dict = JobSeekerRegistrationSerializer(data=request.data)
         if serializer.is_valid():
             password:str = serializer.validated_data.get('password')
+            if len(password) < 8:
+                return CustomResponse.bad_request(message="Password must be more than 8 characters and numbers") 
             en_password: str = encode_password(password)
 
             serializer.save(
@@ -63,7 +65,7 @@ class JobSeekerRegistrationAPIView(GenericAPIView):
 
 
 class JobSeekerDetailsView(GenericAPIView):
-    """Job seekers CRUDs for job-seekers users"""
+    """Job seekers detail endpoint"""
     serializer_class = JobSeekerRegistrationSerializer
     
     def get(self, request:Request, id:int) -> Response:

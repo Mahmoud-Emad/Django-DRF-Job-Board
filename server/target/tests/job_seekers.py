@@ -20,7 +20,7 @@ class JobSeekerTests(APITestCase):
         """Setup local database objects"""
         job_seeker, created = JobSeeker.objects.get_or_create(
             email = 'test@jobseeker.target',first_name = 'Mahmoud',
-            last_name = 'Emad',password ='0000',
+            last_name = 'Emad',password ='000000000',
             country = "EG", city = "Giza"
         )
         self.job_seeker = job_seeker
@@ -83,7 +83,7 @@ class JobSeekerTests(APITestCase):
             'email': 'test_2@employer.target',
             "first_name": "Mahmoud",
             "last_name": "Emad",
-            "password": "0000",
+            "password": "000000000",
             "country": "EG",
             "city": "Giza"
         }
@@ -109,7 +109,7 @@ class JobSeekerTests(APITestCase):
                 "email": "updated@employer.target",
                 "first_name": "Mahmoud",
                 "last_name": "Emad",
-                "password": "0000",
+                "password": "000000000",
                 "country": "EG",
                 "city": "Giza"
             }

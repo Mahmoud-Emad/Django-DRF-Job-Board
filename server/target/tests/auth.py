@@ -22,7 +22,7 @@ class AuthenticationTests(APITestCase):
             'email': 'test1@jobseeker.target',
             'first_name': 'Mahmoud',
             'last_name': 'Emad',
-            'password':'0000',
+            'password':'000000000',
             'phone':'01027906014',
             'description':'Python Developer',
             'country': "EG",
@@ -40,7 +40,7 @@ class AuthenticationTests(APITestCase):
             'email': 'test2@employer.target',
             'first_name': 'Mahmoud',
             'last_name': 'Emad',
-            'password':'0000',
+            'password':'000000000',
             'company_name': 'TestCompany',
         }
         response = self.client.post(url, data, format='json')
