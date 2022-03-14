@@ -50,6 +50,7 @@ class EmployersDetailsSerializer(ModelSerializer):
     employers details serializer class
     """
     jobs = SerializerMethodField()
+    most_recent = SerializerMethodField()
 
     class Meta:
         model = Employer
@@ -69,3 +70,9 @@ class EmployersDetailsSerializer(ModelSerializer):
             company__id = obj.id
         )
         return JobSearchSerializers(jobs, many=True).data
+    
+    def get_most_recent(self, obj):
+        """Return True if most recent else False"""
+        from datetime import datetime, date
+        if date.today() == obj.created.date():
+            return True if int(datetime.now().hour) - (int(obj.created.hour) + 2) <= 1 else False
