@@ -72,7 +72,7 @@
 * Live
     - [http://target-job-board-app.herokuapp.com/admin/](http://target-job-board-app.herokuapp.com/admin/)
     
-### admin credentials are: `admin@target.com`, `0000`
+##### admin credentials are: `admin@target.com`, `0000`
 
 ## Note:
 - Feel free to contact me if there are any problem
