@@ -74,3 +74,4 @@
 
 ## Note:
 - Feel free to contact me if there are any problem
+- I forget to make validation on register endpoint (password field) so you have to choice a password more than 8 characters and digits 
