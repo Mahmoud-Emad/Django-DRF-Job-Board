@@ -10,7 +10,7 @@ class JobSeekerRegistrationSerializer(ModelSerializer):
     class Meta:
         model = JobSeeker
         fields = [
-            'email', 'first_name', 'last_name', 'password',
+            'id','email', 'first_name', 'last_name', 'password',
             "phone", "description","user_type","country", "city"
         ]
         read_only_fields = ("user_type",)
