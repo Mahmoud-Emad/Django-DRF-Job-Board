@@ -39,7 +39,7 @@ class TopCompaniesSerializer(ModelSerializer):
     class Meta:
         model = Employer
         fields = [
-            "company_name", "company_size", "description", "jobs"
+            "id", "company_name", "company_size", "description", "jobs"
         ]
     
     def get_jobs(self, obj:Employer):
@@ -54,7 +54,7 @@ class EmployersDetailsSerializer(ModelSerializer):
     class Meta:
         model = Employer
         fields = [
-            'email', 'first_name', 'last_name', "company_name",
+            "id",'email', 'first_name', 'last_name', "company_name",
             "company_size", "phone","description", "user_type",
             "jobs"
         ]

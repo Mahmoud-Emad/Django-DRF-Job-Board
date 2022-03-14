@@ -2,7 +2,7 @@ from rest_framework.serializers import ModelSerializer, SerializerMethodField
 
 from server.target.models.jobs import Job
 from server.target.models.user import Employer, JobSeeker
-from server.target.serializers.employers import EmployersCompanyInfoSerializer
+from server.target.serializers.employers import EmployersCompanyInfoSerializer, TopCompaniesSerializer
 from server.target.serializers.job_seekers import JobSeekerDetailForEmployerSerializer
 
 
@@ -19,7 +19,7 @@ class PostNewJobSerializers(ModelSerializer):
 class MustRecentJobsSerializer(ModelSerializer):
     """Serializer class to get most recent jobs"""
     most_recent = SerializerMethodField()
-
+    company = SerializerMethodField()
     class Meta:
         model = Job
         fields = '__all__'
@@ -29,6 +29,10 @@ class MustRecentJobsSerializer(ModelSerializer):
         from datetime import datetime, date
         if date.today() == obj.created.date():
             return True if int(datetime.now().hour) - (int(obj.created.hour) + 2) <= 1 else False
+    
+    def get_company(self, obj):
+        """Return company -> employer details"""
+        return TopCompaniesSerializer(obj.company).data
 
 
 class JobSearchSerializers(ModelSerializer):
