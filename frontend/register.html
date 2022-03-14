@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Register - Job Boards</title>
+  <!-- Font Awesome -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    rel="stylesheet">
+  <!-- BOOOTSTRAP -->
+  <link 
+    href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" 
+    rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link 
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" 
+    rel="stylesheet">
+  <!-- bootstrap override Style -->
+  <link 
+    href="./src/style/bootstrap-override.css"
+    rel="stylesheet"
+  />
+  <!-- Icon -->
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <div class="login section-space d-flex justify-content-center align-items-center">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="tabs">
+            <div class="tab-header mb-4">
+              <ul class="nav nav-tabs nav-justified md-tabs primary" id="myTabJust" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" id="reg-seeker-tab" data-toggle="tab" href="#reg-seeker" role="tab" aria-controls="reg-seeker"
+                    aria-selected="true">As a Job Seeker</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="reg-seeker-tab" data-toggle="tab" href="#reg-employee" role="tab" aria-controls="reg-employee"
+                    aria-selected="false">As an Employer</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <h5 class="card-header primary white-text text-center py-4">
+            <strong>Register</strong>
+          </h5>
+          <div class="tab-content card pt-4" id="myTabContentJust">
+            <!-- first tab -->
+            <div class="tab-pane fade show active px-lg-5 pt-0" id="reg-seeker" role="tabpanel">
+              <!-- Form -->
+              <form class="text-center sForm" style="color: #757575;" action="">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="md-form">
+                        <input type="text" id="firstname" class="form-control">
+                        <label for="firstname">First Name</label>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="md-form">
+                        <input type="email" id="lastname" class="form-control">
+                        <label for="lastname">Last Name</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="md-form">
+                        <input type="email" id="email" class="form-control">
+                        <label for="email">E-Mail</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="md-form">
+                        <input type="password" id="password" class="form-control">
+                        <label for="password">Passowrd</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="md-form">
+                        <input type="tel" id="phone" class="form-control">
+                        <label for="phone">Phone</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="md-form">
+                          <textarea id="bio" class="form-control md-textarea" rows="3"></textarea>
+                          <label for="bio">Bio</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-6">
+                      <select class="browser-default custom-select md-form " id="country">
+                        <option selected disabled>Country</option>
+                        <option value="One">One</option>
+                        <option value="Two">Two</option>
+                        <option value="Three">Three</option>
+                      </select>
+                    </div>
+                    <div class="col-6">
+                      <div class="md-form">
+                        <input type="text" id="city" class="form-control mb-0" placeholder="City">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <button class="btn btn-outline-primary btn-rounded btn-block my-4 waves-effect z-depth-0 reg-btn" type="button">Register</button>
+
+                <p>did you have account?
+                  <a href="login.html">Login</a>
+                </p>
+              </form>
+              <!-- Form -->
+            </div>
+
+            <!-- Second tab -->
+            <div class="tab-pane fade px-lg-5 pt-0" id="reg-employee" role="tabpanel">
+              <!-- Form -->
+              <form class="text-center emForm" style="color: #757575;" action="">
+
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="md-form">
+                        <input type="text" id="emFirstname" class="form-control">
+                        <label for="emFirstname">First Name</label>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="md-form">
+                        <input type="email" id="emLastname" class="form-control">
+                        <label for="emLastname">Last Name</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="md-form">
+                        <input type="email" id="emEmail" class="form-control">
+                        <label for="emEmail">E-Mail</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="md-form">
+                        <input type="password" id="emPassword" class="form-control">
+                        <label for="emPassword">Passowrd</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="md-form">
+                        <input type="text" id="emPhone" class="form-control">
+                        <label for="emPhone">Phone</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="md-form">
+                        <input type="text" id="emCompany" class="form-control">
+                        <label for="emCompany">Company name</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-12">
+                      <select class="browser-default custom-select md-form" id="emSize">
+                        <option selected disabled>Company size</option>
+                        <option value="11-50">11-50 employees</option>
+                        <option value="51-100">51-100 employees</option>
+                        <option value="101-500">101-500 employees</option>
+                        <option value="501-1000">501-1000 employees</option>
+                        <option value="1001">more than 1000 employees</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="md-form">
+                          <textarea id="emBio" class="form-control md-textarea" rows="3"></textarea>
+                          <label for="emBio">Bio</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Sign in button -->
+                <button class="btn btn-outline-primary btn-rounded btn-block my-4 waves-effect z-depth-0 regEm-btn" type="button">Register</button>
+
+                <!-- Register -->
+                <p>did you have account?
+                  <a href="login.html">Login</a>
+                </p>
+              </form>
+              <!-- Form -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Jquery -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- !! Bootstrap tooltips !! -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+  <!-- !! Bootstrap !! -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+  <!-- !! Main Script !! -->
+  <script src="src/script/form.js" type="module"></script>
+</body>
+</html>

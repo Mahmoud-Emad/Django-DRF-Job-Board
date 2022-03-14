@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Login - Job Boards</title>
+  <!-- Font Awesome -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    rel="stylesheet">
+  <!-- BOOOTSTRAP -->
+  <link 
+    href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" 
+    rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link 
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" 
+    rel="stylesheet">
+  <!-- bootstrap override Style -->
+  <link 
+    href="./src/style/bootstrap-override.css"
+    rel="stylesheet"
+  />
+  <!-- Icon -->
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <div class="login d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card">
+
+            <h5 class="card-header primary white-text text-center py-4">
+              <strong>Sign in</strong>
+            </h5>
+
+            <!--Card content-->
+            <div class="card-body px-lg-5 pt-0">
+
+              <!-- Form -->
+              <form class="text-center login-form" style="color: #757575;" action="#!">
+
+                <!-- Email -->
+                <div class="md-form">
+                  <input type="email" id="email" class="form-control">
+                  <label for="email">E-mail</label>
+                </div>
+
+                <!-- Password -->
+                <div class="md-form">
+                  <input type="password" id="password" class="form-control">
+                  <label for="password">Password</label>
+                </div>
+
+                <!-- Sign in button -->
+                <button class="btn btn-outline-primary btn-rounded btn-block my-4 waves-effect z-depth-0 login-btn" type="button">Sign in</button>
+
+                <!-- Register -->
+                <p>Not a member?
+                  <a href="register.html">Register</a>
+                </p>
+              </form>
+              <!-- Form -->
+
+            </div>
+
+          </div>
+        <!-- Material form login -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Jquery -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- !! Bootstrap tooltips !! -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+  <!-- !! Bootstrap !! -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+  <!-- !! Main Script !! -->
+  <script src="src/script/form.js" type="module"></script>
+</body>
+</html>

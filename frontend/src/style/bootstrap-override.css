@@ -1,0 +1,154 @@
+/* -------------------------------------------------------------------------- */
+/*                                    Fonts                                   */
+/* -------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+/* ================================================== */
+
+
+/* -------------------------------------------------------------------------- */
+/*                                Global Style                                */
+/* -------------------------------------------------------------------------- */
+
+:root {
+  --main-color: #e74c3c;
+  --secondary-color: #2980b9;
+  --main-padding-top: 100px;
+  --main-padding-bottom: 100px;
+  --section-background: #ececec;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  overflow-x: hidden;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+body.stop-scrolling {
+  overflow-y: hidden;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+p {
+  word-break: break-word;
+  font-size: 16px;
+}
+
+a,
+a:hover,
+a:visited,
+a:active,
+a:link {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+button,
+button:visited,
+button:hover,
+button:focus {
+  box-shadow: none !important;
+  border: none;
+}
+
+input {
+  outline: none;
+}
+
+.section {
+  min-height: 100vh;
+}
+
+.section-space {
+  padding-bottom: var(--main-padding-bottom);
+  padding-top: var(--main-padding-top);
+}
+
+/* Keyframe's */
+@keyframes zoomInOut {
+
+  0%,
+  100% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+  }
+}
+
+/* Bootstrap */
+
+.text-primary {
+  color: var(--main-color) !important;
+}
+
+.primary {
+  background-color: var(--main-color) !important;
+}
+
+.text-secondary {
+  color: var(--secondary-color) !important;
+}
+
+.secondary {
+  background-color: var(--secondary-color) !important;
+}
+
+.btn-primary {
+  background-color: var(--main-color) !important;
+}
+
+.btn-primary:not([disabled]):not(.disabled):active,
+.btn-primary:not([disabled]):not(.disabled).active,
+.show>.btn-primary.dropdown-toggle {
+  background-color: var(--main-color) !important;
+}
+
+.bq-primary {
+  border-left-color: var(--main-color) !important;
+}
+
+.btn-outline-primary,
+.btn-outline-primary:hover,
+.btn-outline-primary:active,
+.btn-outline-primary:focus,
+.btn-outline-primary:not([disabled]):not(.disabled):active,
+.btn-outline-primary:not([disabled]):not(.disabled).active,
+.show>.btn-outline-primary.dropdown-toggle {
+  border-color: var(--main-color) !important;
+  color: var(--main-color) !important;
+}
+
+.md-tabs {
+  padding: 0.7rem;
+}
+
+.md-tabs .nav-link:not(.active) {
+  color: #fff;
+}
+
+/* .md-tabs .nav-link */
