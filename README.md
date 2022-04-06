@@ -1,17 +1,24 @@
 # Target ` Job Board `
 
+
 ## Description:
 * Simple API job board web application built by Django and DRF.
 * [You can see it live now](https://target-job-board-app.netlify.app/)
 
 
+## Requirements:
+* Docker
+* Kubernetes [kubectl, helm]
+
+
 ## Installation:
 * There is a few packages were used in this application such as: django, djangorestframework djangorestframework-simpleJWT
 * Docker:
-    * Run `docker build .` will take latest tag
-    * Run `docker-compose build target` to build the docker image
+    * Run `docker build --force-rm -t target-image .` will take latest tag
+    * Run `docker-compose build target-image` to build the docker image
     * Run `docker-compose up`
 * Kubernetes:
+    * Run `helm upgrade --install django-target .\helm\target-helm`  
     * Run `kubectl port-forward svc/django-target-target-helm 8080:80`
 * Python:
     * You have to create environment and this is the first step, check command below
@@ -56,9 +63,11 @@
 
 * #####  Ech user has permissions based on his user type
 
+
 ## How to login?:
 - Go to [http://127.0.0.1:8000/api/auth/sign-in/](http://127.0.0.1:8000/api/auth/sign-in/) endpoint to take a token
 - Put your `Bearer <token>` in authorization button to take access, `now you are logged in`
+
 
 ## Run Tests:
 - To Run unit tests there are two options:
@@ -66,6 +75,7 @@
         - `docker-compose run web sh -c "python manage.py test"`.
     - Python:
         - `python manage.py test`.
+
 
 ## Admin Dashboard:
 #### To access Admin dashboard 
