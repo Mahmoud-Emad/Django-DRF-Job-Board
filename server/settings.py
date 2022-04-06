@@ -15,8 +15,7 @@ SECRET_KEY = 'django-insecure-7apl5r$grrs^n!88kuekfe#+68g#qzbhoz@xsuk9nqekqg3&eq
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '127.0.0.1',
-    'target-job-board-app.herokuapp.com'
+    "*"
 ]
 
 
@@ -201,3 +200,4 @@ DATABASES['default'].update(prod_db)
 
 
 CORS_ORIGIN_ALLOW_ALL = True
+APPEND_SLASH = True

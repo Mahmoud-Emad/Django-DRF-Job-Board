@@ -8,8 +8,8 @@
 ## Installation:
 * There is a few packages were used in this application such as: django, djangorestframework djangorestframework-simpleJWT
 * Docker:
-    * Run `docker build .`
-    * Run `docker-compose build` to build the docker image
+    * Run `docker build .` will take latest tag
+    * Run `docker-compose build target` to build the docker image
     * Run `docker-compose up`
 * Python:
     * You have to create environment and this is the first step, check command below

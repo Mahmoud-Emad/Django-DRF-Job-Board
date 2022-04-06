@@ -1,7 +1,8 @@
 version: "3"
    
 services:
-  web:
+  target:
+    image: target-image
     build: .
     command: >
       sh -c "python manage.py makemigrations
