@@ -11,6 +11,8 @@
     * Run `docker build .` will take latest tag
     * Run `docker-compose build target` to build the docker image
     * Run `docker-compose up`
+* Kubernetes:
+    * Run `kubectl port-forward svc/django-target-target-helm 8080:80`
 * Python:
     * You have to create environment and this is the first step, check command below
     * for windows try tio use this `python -m venv (name_of_env)`
