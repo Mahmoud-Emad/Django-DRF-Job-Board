@@ -82,7 +82,7 @@
 * [Local](http://127.0.0.1:8000/admin/) 
 * [Live](http://target-job-board-app.herokuapp.com/admin/)
 
-### admin credentials are: `admin@target.com`, `0000`
+### admin credentials: `admin@target.com`, `0000`
 
 ## Note
 
