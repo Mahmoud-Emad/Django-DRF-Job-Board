@@ -38,4 +38,4 @@ jobs:
 
       - name : Build Docker image
         # uses: actions/docker@v2
-        run: docker build . --file Dockerfile --tag target-image && docker run target-image
+        run: docker build . --file Dockerfile --tag target-image && docker run -d --name target-container -it target-image
