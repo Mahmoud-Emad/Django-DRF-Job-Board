@@ -37,5 +37,5 @@ jobs:
             python manage.py test
 
       - name : Build Docker image
-        uses: actions/docker@v2
+        # uses: actions/docker@v2
         run: docker build . --file Dockerfile --tag target-image && docker run target-image
